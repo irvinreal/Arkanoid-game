@@ -1,0 +1,120 @@
+body {
+  position: relative;
+  background-color: #111;
+  text-align: center;
+}
+
+canvas {
+  border: 4px solid #fff;
+  border-bottom: transparent;
+  background: url('./bkg.png') repeat;
+  margin: 0 auto;
+  display: block;
+}
+
+#logo-container {
+  width: 220px;
+  height: 50px;
+  margin: 2.6rem auto;
+
+  background-image: url('./sprite.png');
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+
+  animation: blink 0.6s ease-in infinite;
+}
+
+#buttons-container {
+  margin-top: 1rem;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+}
+#buttons-container button {
+  background-color: blue;
+  color: white;
+  border: none;
+  outline: none;
+  padding: 5px 30px;
+
+  transition: 0.1s ease-out;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(0, 0, 194);
+  }
+}
+
+.score {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.score div {
+  display: inline-block;
+}
+.score div:nth-child(1),
+.score div:nth-child(2) {
+  margin-right: 2.3rem;
+}
+
+span {
+  color: rgb(201, 201, 52);
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+}
+
+@keyframes blink {
+  0% {
+    translate: 0 -2px;
+  }
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  42%,
+  100% {
+    opacity: 0.6;
+  }
+}
+
+#game-over-container {
+  opacity: 0;
+  visibility: hidden;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 380px;
+  width: 150px;
+  height: 20px;
+
+  background-image: url('./sprite.png');
+  background-repeat: no-repeat;
+  background-position: -322px -2px;
+
+  transition: 0.3s ease-in-out;
+}
+
+.game-over-animation {
+  visibility: visible !important;
+  opacity: 1 !important;
+  translate: 0 20px;
+
+  animation: blink-game-over 0.6s ease-in infinite;
+}
+
+@keyframes blink-game-over {
+  0%,
+  50% {
+    opacity: 1;
+    display: none;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
